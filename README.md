@@ -7,3 +7,13 @@ Shorty uses bitly as its main api for shortening urls.
 2. Install Shorty-safari and build it as your own safari extension
 
 > Reason why this isn't in the gallery: Apple shut down the safari developer certificate and restricted it to paid developers...
+
+# Example usage
+
+![http://imgur.com/a/uv55P]
+
+Contextual menu.
+
+![http://imgur.com/a/nvFF3]
+
+Prompt box pops up.
