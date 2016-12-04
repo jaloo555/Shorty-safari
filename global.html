@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shorty</title>
+	<script type="text/javascript">
+	       function performCommand(event) {
+	           if (event.command === 'shorturl-default') {
+	               safari.application.activeBrowserWindow.activeTab.page.dispatchMessage('getselection');
+	           }
+	           else if (event.command === 'shorturl-current')
+	           {
+	           	safari.application.activeBrowserWindow.activeTab.page.dispatchMessage('getcurrenturl');
+	           }
+	       }
+
+	       function handleMessage(msg) {
+	           if (msg.name === 'theselection') {
+	               var longURl = msg.message;
+	               safari.application.activeBrowserWindow.activeTab.page.dispatchMessage('bitlyshort', longURl);
+	           } else if (msg.name === 'currenturl') {
+	               var longURl = msg.message;
+	               safari.application.activeBrowserWindow.activeTab.page.dispatchMessage('bitlyshort', longURl);
+	           } else if (msg.name === 'wrongurl') {
+	           		var errorMsg = 'Sorry, the url provided is not correct, please change to another one!'
+	           		alert(errorMsg);
+	           } else if (msg.name === 'shortedurl') {
+	           		copyToClipboard(msg.message);
+
+	           } else if (msg.message === 'logger') {
+	           		console.log(msg.message);
+	           }
+	       }
+
+	       function copyToClipboard(text) {
+	       		window.prompt("Copy to clipboard: Mac (Cmd+C) / Win (Ctrl+C) ", text);
+	       		document.execCommand('copy');
+	       }
+
+	       safari.application.addEventListener('command', performCommand, false);
+	       safari.application.addEventListener('message', handleMessage, false);
+	       safari.application.addEventListener("validate", myValidateHandler, false);
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
