@@ -10,10 +10,11 @@ Shorty uses bitly as its main api for shortening urls.
 
 # Example usage
 
-![alt tag](http://imgur.com/OxfFWKe)
+![Imgur](http://i.imgur.com/OxfFWKe.png)
 
 Contextual menu.
 
-![alt tag](http://imgur.com/GYTWxwm)
+![Imgur](http://i.imgur.com/C11nfra.png)
+
 
 Prompt box pops up.
